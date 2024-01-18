@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="?" method="POST">
+    <form action="login.php" method="POST">
         <img src="img/logo.png">
         <input type="text" name="usuario" placeholder="Usuario: ">
         <input type="text" name="password" placeholder="Contraseña: ">
