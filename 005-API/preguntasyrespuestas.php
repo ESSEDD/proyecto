@@ -9,7 +9,7 @@
     }
     $contenido['pregunta'] = $datos;
 
-    $peticion = "SELECT * FROM respuestas WHERE preguntas_titulo = ".$_GET['id']." ;";
+    $peticion = "SELECT * FROM respuestas WHERE preguntas_titulo = ".$_GET['id']." ORDER BY Identificador DESC;";
     $resultado = mysqli_query($conexion,$peticion);
     $respuestas = [];
     while($fila = mysqli_fetch_assoc($resultado)){

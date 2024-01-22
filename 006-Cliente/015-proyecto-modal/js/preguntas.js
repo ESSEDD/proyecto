@@ -31,6 +31,7 @@ function cargarArticulo(identificador){
         return response.json();
     }).then(function(datos){
         console.log(datos)
+        //cargo las preguntas
         let plantilla = document.getElementById("plantillapregunta")
         let seccion = document.querySelector("section")
         let pregunta = datos.pregunta[0]
@@ -41,6 +42,16 @@ function cargarArticulo(identificador){
         importado.querySelector("time").textContent = pregunta.fecha;
         importado.querySelector("p").textContent = pregunta.texto;
         seccion.appendChild(importado);
-        
+        //cargo las respuestas
+        let plantilla2 = document.getElementById("plantillarespuesta")
+        let respuestas = datos.respuestas
+        for(let i=0;i<respuestas.length;i++){
+            let importado = document.importNode(plantilla2.content,true);
+            importado.querySelector("article").setAttribute("name",respuestas[i].Identificador);
+            importado.querySelector("time").textContent = respuestas[i].fecha;
+            importado.querySelector("p").textContent = respuestas[i].texto;
+            seccion.appendChild(importado);
+        }
+
     })
 }
